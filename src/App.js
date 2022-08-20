@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Textarea from './components/Textarea';
+import React, { useState } from "react";
 
 function App() {
+  const navLinks = [
+    {menuName : 'Home', menuHref : '/'},
+    {menuName : 'About', menuHref : '/about'},
+    {menuName : 'Contact', menuHref : '/contact'},
+  ]
+
+  const [mode, setMode] = useState('light');
+
+  const toggleMode = () => {
+    if (mode === 'light') {
+        setMode('dark')
+    } else {
+        setMode('light')
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar title="textDecor" navLinks={navLinks} mode={mode} toggleMode={toggleMode}/>
+      <Textarea/>
+    </>
   );
 }
 
