@@ -15,15 +15,19 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
         setMode('dark')
+        document.body.style.backgroundColor = '#001634';
+        document.body.style.color = '#e7e7e7';
     } else {
         setMode('light')
+        document.body.style.backgroundColor = '#fff';
+        document.body.style.color = '#000';
     }
   }
 
   return (
     <>
       <Navbar title="textDecor" navLinks={navLinks} mode={mode} toggleMode={toggleMode}/>
-      <Textarea/>
+      <Textarea mode={mode}/>
     </>
   );
 }
