@@ -8,19 +8,23 @@ export default function Textarea(props) {
     const handleUCtext = () => {
         let newText = text.toUpperCase()
         setText(newText)
+        props.showAlert("Text has been converted into Uppercase.", 'success')
     }
 
     const handleLCtext = () => {
         let newText = text.toLowerCase()
         setText(newText)
+        props.showAlert("Text has been converted into Lowercase.", 'success')
     }
 
     const handleCopytext = () => {
-        let copiedText = navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(text);
+        props.showAlert("Text has been copied into clipboard.", 'success')
     }
 
     const handleCleartext = () => {
         setText('')
+        props.showAlert("Input box has been cleared.", 'success')
     }
 
     const [text, setText] = useState('');
