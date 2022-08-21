@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Navbar from './components/Navbar';
 import Textarea from './components/Textarea';
 import Alert from './components/Alert';
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 function App() {
   const navLinks = [
@@ -38,11 +42,15 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Navbar title="textDecor" navLinks={navLinks} mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
-      <Textarea showAlert={showAlert} mode={mode}/>
-    </>
+      <Routes>
+        <Route path="/" element={<Textarea showAlert={showAlert} mode={mode}/>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 
