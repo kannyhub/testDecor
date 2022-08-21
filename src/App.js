@@ -43,12 +43,12 @@ function App() {
 
   return (
     <Router>
-      <Navbar title="textDecor" navLinks={navLinks} mode={mode} toggleMode={toggleMode}/>
-      <Alert alert={alert}/>
+      <Navbar title="textDecor" navLinks={navLinks} mode={mode} toggleMode={toggleMode} searchBar={false} />
+        <Alert alert={alert}/>
       <Routes>
         <Route path="/" element={<Textarea showAlert={showAlert} mode={mode}/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact mode={mode} toggleMode={toggleMode}/>} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from 'prop-types'
 import {
   Link
@@ -40,7 +40,7 @@ export default function Navbar(props) {
             <input className="form-check-input" type="checkbox" onClick={props.toggleMode} id="darkmode"/>
             <label className="form-check-label" htmlFor="darkmode">Dark</label>
         </div>
-          <form className="d-flex">
+          {props.searchBar === true && <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -50,7 +50,7 @@ export default function Navbar(props) {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
+          </form>}
         </div>
       </div>
     </nav>
