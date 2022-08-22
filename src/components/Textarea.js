@@ -28,7 +28,7 @@ export default function Textarea(props) {
     }
 
     const [text, setText] = useState('');
-    let totalWords = text.split(' ').filter((element) => {return element.length !==0}).length
+    let totalWords = text.split(/\s+/).filter((element) => {return element.length !==0}).length
     let disabled = (totalWords === 0 ? true : false)
   return (
     <>
